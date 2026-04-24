@@ -164,11 +164,15 @@ class EventCfg:
         mode="reset",
         params={
             "asset_cfg": SceneEntityCfg("robot"),
-            "position_range": (-0.5, 0.5, 0.15, 0.25),  # xy 随机位置
-            "orientation_range": (-0.1, 0.1, -0.1, 0.1), # 轻微随机角度
-            "velocity_range": (-0.1, 0.1, -0.1, 0.1),
+            #  pose_range = (x范围, y范围, z范围, 旋转范围)
+            "pose_range": {"x": (-0.5, 0.5), "y": (-0.5, 0.5), "z": (0.15, 0.25),
+                        "roll": (-0.1, 0.1), "pitch": (-0.1, 0.1), "yaw": (-0.1, 0.1)},
+            # 速度范围
+            "velocity_range": {"x": (-0.1, 0.1), "y": (-0.1, 0.1), "z": (-0.1, 0.1),
+                            "roll": (-0.1, 0.1), "pitch": (-0.1, 0.1), "yaw": (-0.1, 0.1)},
         },
     )
+
 
 
 @configclass
